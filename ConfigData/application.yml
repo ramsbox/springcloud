@@ -1,13 +1,31 @@
+----
+# Items that apply to ALL profiles:
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+
 ---
 spring:
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/ramsbox/springcloud
-          searchPaths: ConfigData
-        # "native" is used when the native profile is active, for local tests with a classpath repo:
-        native:
-          searchLocations: classpath:offline-repository/
-server:
-  port: 8001
+  profiles: subject
+words: I,You,He,She,It
+  
+---
+spring:
+  profiles: verb
+words: ran,knew,had,saw,bought
+
+---
+spring:
+  profiles: article
+words: a,the
+
+---
+spring:
+  profiles: adjective
+words: reasonable,leaky,suspicious,ordinary,unlikely
+
+---
+spring:
+  profiles: noun
+words: boat,book,vote,seat,backpack,partition,groundhog
